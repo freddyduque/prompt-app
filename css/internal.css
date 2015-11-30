@@ -1,0 +1,42 @@
+body {
+    line-height: 1.42857;
+    color: #333;
+    font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+}
+body.login-page > .login-container {
+    width: 360px;
+}
+body.login-page .login-panel{
+    margin-top:100px
+}
+body.login-page .login-panel:after,body.login-page .login-panel:before{
+    background-image:linear-gradient(to bottom,#f8f8f8 0,#f9f9f9 100%);
+    background-repeat:repeat-x;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#fff9f9f9', GradientType=0);
+    border:1px solid #c4c6ca;
+    content:"";
+    display:block;
+    height:100%;
+    left:-1px;
+    position:absolute;
+    width:100%
+}
+body.login-page .login-panel:after{
+    -webkit-transform:rotate(2deg);
+    -ms-transform:rotate(2deg);
+    transform:rotate(2deg);
+    top:0;
+    z-index:-1
+}
+body.login-page .login-panel:before{
+    -webkit-transform:rotate(-3deg);
+    -ms-transform:rotate(-3deg);
+    transform:rotate(-3deg);
+    top:0;
+    z-index:-2
+}
+.panel {
+    position: relative;
+    border-radius: 0;
+}
