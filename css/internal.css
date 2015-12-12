@@ -43,7 +43,7 @@ body.login-page #header .navbar-brand {
     float: none;
 }
 #header {
-    height: 66px;
+    height: 67px;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -54,7 +54,7 @@ body.login-page #header .navbar-brand {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     border-image: none;
-    background-image: linear-gradient(to bottom, #FFF 0px, #F3F3F3 100%);
+    background-image: linear-gradient(to bottom, #FFF 0px, #d9d9d9 100%);
     background-repeat: repeat-x;
 }
 #header .navbar {
@@ -72,7 +72,6 @@ body.login-page #header .navbar-brand {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     border-image: none;
-    background: transparent url("../img/patterns/4.png") repeat scroll 0% 0%;
 }
 #header .navbar .navbar-brand {
     font-size: 30px;

@@ -1,0 +1,28 @@
+body {
+  line-height: 1.42857;
+  color: #333;
+  font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  background: transparent url("../img/patterns/01.png") repeat scroll 0% 0%;
+}
+.navbar-default .navbar-brand {
+    color: #337AB7;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #23527c;
+}
+.navbar-brand-custom{
+  font-size: 30px;
+  font-weight: 700;
+}
+.slogan-custom{
+  font-size: 16px;
+  color: #6B6B6B;
+}
+.navbar-text-email{
+  font-size: 10px;
+  margin-top: 5px;
+  float: right;
+  margin-bottom: 10px;
+}

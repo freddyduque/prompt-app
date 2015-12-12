@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Basic Bootstrap Template</title>
+    <title>SVF.prompt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta name="author" content="Freddy Duque">
@@ -10,24 +10,58 @@
     <meta name="keywords" content="">
     <meta name="application-name" content="SVF.prompt">
       
-    <meta name="msapplication-TileColor" content="#3399cc">
+    <meta name="msapplication-TileColor" content="#337ab7">
       
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/internal.css">
-    <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/internal-main.css">
+    <link rel="stylesheet" href="../css/awesome-bootstrap-checkbox.css">
       
   </head>
-  <body class="login-page">
-    <div class="container-fluid" id="header">
-      <div class="row">
-        <div class="navbar">
-          <div class="container text-center">
-            <a class="navbar-brand" href="http://www.svf-international.com">SVF<span class="slogan">.prompt</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand navbar-brand-custom" href="http://www.svf-international.com">SVF<span class="slogan slogan-custom">.prompt</span></a>
+        </div>        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Language here</a></li>
+            <div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Freddy Duque <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><p class="navbar-text navbar-text-email">freddy.duque@gmail.com</p></li>
+                <li><a href="#">My Account</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a class="btn-danger" href="#">Sign out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     <div class="container login-container">
       <div class="login-panel panel panel-default plain">
         <div class="panel-body">
@@ -94,7 +128,7 @@
           <p class="text-center">SVF INTERNATIONAL, N.V. | ©2015 Copyright | All rights reserved.</p>
       </div>
     </div> 
-    <script src="js/jquery.min.js"></script>
-  	<script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+  	<script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
