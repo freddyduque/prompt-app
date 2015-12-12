@@ -12,8 +12,9 @@ class createCon  {
       die('Could not connect to database!');
     } else {
       $this->myconn = $con;
-      echo 'Connection established!';}
-      return $this->myconn;
+      echo 'Connection established!';
+    }
+    return $this->myconn;
   }
   function close() {
     mysqli_close($myconn);
