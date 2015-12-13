@@ -16,6 +16,7 @@ h3 {
   background-image: linear-gradient(to bottom, #428BCA, #2D6CA2);
   border-color: #2B669A #2B669A #2B669A;
   text-align: center;
+  text-decoration: none;
 }
 .thumbnail > a:hover {
   color: #ffffff;
