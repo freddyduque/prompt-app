@@ -1,6 +1,37 @@
 <?php
-include_once '../../includes/register.inc.php';
-include_once '../../includes/functions.php';
+session_start();
+
+session_destroy();                        //remove later
+unset($_SESSION['UserSession']);          //remove later
+
+session_start();
+include_once '../../includes/db_connect.php';
+
+if(isset($_SESSION['UserSession'])!=""){
+  header("Location: prompt-main/index.html");
+  exit;
+}  
+
+if(isset($_POST['btn-login'])){
+  $username = $mysqli->real_escape_string(trim($_POST['username']));
+  $upass = $mysqli->real_escape_string(trim($_POST['password']));
+  
+  $query = $mysqli->query("SELECT * FROM user WHERE email='".$username."@svf-services.com';");
+  $row = $query->fetch_array();
+  
+  if(strcmp( $upass, $row['PASSWORD']) == 0  ){          //if(password_verify($upass, $row['password'])){
+    $_SESSION['UserSession'] = $row['iduser'];
+    $_SESSION['UserName'] = $row['NAME'];
+    $_SESSION['UserLastName'] = $row['LASTNAME'];
+    $_SESSION['UserEmail'] = $row['EMAIL'];
+    header("Location: prompt-main/index.html");
+  }else
+    $msg = "<div class='alert alert-danger alert-dismissible' role='alert'>
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+      <strong>Username</strong> or <strong>Password</strong> doesn't exists!
+    </div>";
+  $mysqli->close();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,18 +58,20 @@ include_once '../../includes/functions.php';
       <div class="navbar-header">
           <a class="navbar-brand navbar-brand-custom" href="http://www.svf-international.com">SVF<span class="slogan slogan-custom">.prompt</span></a>
       </div>
-    </nav>
+      <p class="navbar-text navbar-right" style="margin-right: 20px;"><a href="#" class="navbar-link"><img title="Cambiar a Español" alt="Español" src="img/es.png"></a>Español</p>
+    </nav>    
     <div class="container login-container">
       <div class="login-panel panel panel-default plain">
         <div class="panel-body">
-          <form method="POST" novalidate="novalidate" class="form-horizontal mt0" action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" id="login-form" role="form">
+          <?php if(isset($msg))echo $msg;?>
+          <form method="POST" novalidate="novalidate" class="form-horizontal mt0" id="login-form" role="form">
             <div class="form-group">
               <div class="col-md-12">
                 <label for="username">Username:</label>
               </div>
               <div class="col-lg-12">
                 <div class="input-group">
-                  <input aria-invalid="false" aria-required="true" name="username" id="username" class="form-control valid" placeholder="Your username">
+                  <input aria-invalid="false" aria-required="true" name="username" id="username" class="form-control valid" placeholder="Your username" required>
                   <span class="input-group-addon" id="basic-addon2">@svf-services.com</span>
                 </div>
               </div>
@@ -49,7 +82,7 @@ include_once '../../includes/functions.php';
               </div>
               <div class="col-lg-12">
                 <div class="input-group">                     
-                  <input aria-invalid="false" aria-required="true" name="password" id="password" class="form-control valid" placeholder="Your password" type="password">
+                  <input aria-invalid="false" aria-required="true" name="password" id="password" class="form-control valid" placeholder="Your password" type="password" required>
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                   </span>  
@@ -57,20 +90,23 @@ include_once '../../includes/functions.php';
               </div>
             </div>
             <div class="form-group">
+              <!--
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">    
                 <div class="checkbox">
                   <input type="checkbox" id="checkbox-custom-01"><label for="checkbox-custom-01">Remember me?</label>                      
                 </div>
               </div>  
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 ">
-                <button type="submit" class="btn btn-primary pull-right">Login <span class="glyphicon glyphicon-user"></span></button>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 "> pull-right
+              -->
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-block" name="btn-login" id="btn-login">Login <span class="glyphicon glyphicon-user"></span></button>
               </div>
             </div>
           </form>    
           <span class="help-block text-center"><a data-toggle="collapse" data-target="#panel-footer-01" style="text-decoration: none;cursor: pointer">Forgot your password?</a></span>          
         </div>
         <div class="panel-footer gray-lighter-bg collapse" id="panel-footer-01">
-          <p class="text-center" style="padding-top: 15px">Enter your email to retrive your password.</p>
+          <p class="text-center" style="padding-top: 15px">Enter your username to retrive your password.</p>
           <form novalidate="novalidate" class="form-horizontal mt0" action="index.html" id="login-form" role="form">
             <div class="form-group">
               <div class="col-lg-12">
@@ -82,7 +118,7 @@ include_once '../../includes/functions.php';
             </div>
             <div class="form-group" style="margin-bottom: 0px;padding-bottom:15px">
               <div class="col-md-12">
-                <button type="button" class="btn btn-primary center-block">Retrive</button>
+                <button type="button" class="btn btn-primary btn-block">Retrive</button>
               </div>
             </div>
           </form>                    

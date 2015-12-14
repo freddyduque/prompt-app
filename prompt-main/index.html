@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['UserSession']))
+  header("Location: ../index.html");
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,9 +41,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">          
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Freddy Duque <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION[UserName]." ".$_SESSION[UserLastName];?><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-header">freddy.duque@gmail.com</li>
+                <li class="dropdown-header"><?php echo $_SESSION[UserEmail];?></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#"><span class="glyphicon glyphicon-custom glyphicon-user"></span>My Account</a></li>
                 <li role="separator" class="divider"></li>
@@ -51,12 +57,17 @@
     </nav>
     <div class="container">
       <div class="row">
+        <ol class="breadcrumb">
+          <li class="active">Home</li>
+        </ol>
+      </div>      
+      <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="thumbnail">
-            <a href="#" class="thumbnail" >
+            <a href="om/create.html" class="thumbnail" >
               <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
               <div class="caption">
-                <h3 class="text-center">Create OT</h3>
+                <h3 class="text-center">Create W.O.</h3>
               </div>
             </a>            
           </div>
@@ -66,7 +77,7 @@
             <a href="#" class="thumbnail" >
               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
               <div class="caption">
-                <h3 class="text-center">Search OT</h3>
+                <h3 class="text-center">Search W.O.</h3>
               </div>
             </a>            
           </div>
