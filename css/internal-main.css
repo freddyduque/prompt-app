@@ -10,15 +10,19 @@ h3 {
   margin-bottom: 20px;
   color: #FFF;
 }
+.thumbnail {
+  margin-bottom: 10px;
+}
 .thumbnail > a{
   margin-bottom: 0px;
   background-color: #428BCA;
   background-image: linear-gradient(to bottom, #428BCA, #2D6CA2);
   border-color: #2B669A #2B669A #2B669A;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
 }
-.thumbnail > a:hover {
+.thumbnail > a:hover {  
   color: #ffffff;
   background-color: #2D6CA2;
   background-image: linear-gradient(to bottom, #2D6CA2, #2D6CA2);
