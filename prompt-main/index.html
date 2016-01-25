@@ -1,5 +1,9 @@
 <?php
+include_once '../../../includes/logout.php';
 session_start();
+
+if(isset($_GET["lgout"]))
+  logout();
 
 if(!isset($_SESSION['UserSession']))
   header("Location: ../index.html");
@@ -53,7 +57,7 @@ if(!isset($_SESSION['UserSession']))
               <li role="separator" class="divider"></li>
               <li><a href="#"><span class="glyphicon glyphicon-custom glyphicon-user"></span>My Account</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-out glyphicon-custom"></span>Sign out</a></li>
+              <li><a href="?lgout=true"><span class="glyphicon glyphicon-log-out glyphicon-custom"></span>Sign out</a></li>
             </ul>
           </li>
         </ul>
@@ -69,13 +73,13 @@ if(!isset($_SESSION['UserSession']))
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Order Management</h3>
+              <h3 class="panel-title"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>Order Management</h3>
             </div>
             <div class="panel-body">
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="thumbnail">
                   <a href="om/create.html" class="thumbnail">
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     <div class="caption">
                       <h3 class="text-center">Create</h3>
                     </div>
@@ -98,7 +102,7 @@ if(!isset($_SESSION['UserSession']))
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Administration</h3>
+              <h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Administration</h3>
             </div>
             <div class="panel-body">
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -127,7 +131,7 @@ if(!isset($_SESSION['UserSession']))
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Management</h3>
+              <h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User Management</h3>
             </div>
             <div class="panel-body">
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -143,7 +147,7 @@ if(!isset($_SESSION['UserSession']))
               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="thumbnail">
                   <a href="um/search.html" class="thumbnail">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <div class="caption">
                       <h3 class="text-center">Search</h3>
                     </div>

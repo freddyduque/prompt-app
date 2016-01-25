@@ -1,19 +1,22 @@
 body {
   line-height: 1.42857;
   color: #333;
-  font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   background: transparent url("../img/patterns/01.png") repeat scroll 0% 0%;
 }
+
 h3 {
   margin-top: 0px;
   margin-bottom: 20px;
   color: #FFF;
 }
+
 .thumbnail {
   margin-bottom: 10px;
 }
-.thumbnail > a{
+
+.thumbnail > a {
   margin-bottom: 0px;
   background-color: #428BCA;
   background-image: linear-gradient(to bottom, #428BCA, #2D6CA2);
@@ -22,49 +25,65 @@ h3 {
   text-align: center;
   text-decoration: none;
 }
-.thumbnail > a:hover {  
+
+.thumbnail > a:hover {
   color: #ffffff;
   background-color: #2D6CA2;
   background-image: linear-gradient(to bottom, #2D6CA2, #2D6CA2);
   border-color: #2B669A #2B669A #2B669A;
   text-decoration: none;
 }
-.navbar{
+
+.navbar {
   border-radius: 0px;
 }
+
 .navbar-default .navbar-brand {
-    color: #337AB7;
+  color: #337AB7;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #23527c;
 }
-.navbar-brand-custom{
+
+.navbar-brand-custom {
   font-size: 30px;
   font-weight: 700;
 }
-.slogan-custom{
+
+.slogan-custom {
   font-size: 16px;
   color: #6B6B6B;
 }
+
 .navbar-link {
   float: left;
 }
+
 .navbar-link:hover {
   text-decoration: none;
 }
+
 .navbar-link > p > img {
   margin-right: 5px;
 }
+
 .navbar-text {
   margin-left: 5px;
   margin-top: 20px;
   margin-bottom: 11px;
 }
+
 div > a .glyphicon {
   padding-top: 10px;
   font-size: 40px;
 }
-.glyphicon-custom{
+
+.glyphicon-custom {
+  padding-right: 10px;
+}
+
+.panel-title > span {
   padding-right: 10px;
 }
