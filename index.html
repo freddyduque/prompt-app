@@ -13,10 +13,10 @@ if(isset($_SESSION['UserSession'])!=""){
 }  
 
 if(isset($_POST['btn-login'])){
-  $username = $mysqli->real_escape_string(trim($_POST['username']));
+  $email = $mysqli->real_escape_string(trim($_POST['inputEmail']));
   $upass = $mysqli->real_escape_string(trim($_POST['password']));
   
-  $query = $mysqli->query("SELECT * FROM user WHERE email='".$username."@svf-services.com';");
+  $query = $mysqli->query("SELECT * FROM user WHERE email='".$email."';");
   $row = $query->fetch_array();
   
   if(strcmp( $upass, $row['PASSWORD']) == 0  ){          //if(password_verify($upass, $row['password'])){
@@ -28,7 +28,7 @@ if(isset($_POST['btn-login'])){
   }else
     $msg = "<div class='alert alert-danger alert-dismissible' role='alert'>
       <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-      <strong>Username</strong> or <strong>Password</strong> doesn't exists!
+      <strong>Email</strong> or <strong>Password</strong> doesn't exists!
     </div>";
   $mysqli->close();
 }
@@ -64,25 +64,27 @@ if(isset($_POST['btn-login'])){
       <div class="login-panel panel panel-default plain">
         <div class="panel-body">
           <?php if(isset($msg))echo $msg;?>
-          <form method="POST" novalidate="novalidate" class="form-horizontal mt0" id="login-form" role="form">
+          <form method="POST" action="index.html" class="form-horizontal mt0" id="login-form" role="form">
             <div class="form-group">
               <div class="col-md-12">
-                <label for="username">Username:</label>
+                <label for="inputEmail">Username or email address</label>
               </div>
               <div class="col-lg-12">
                 <div class="input-group">
-                  <input aria-invalid="false" aria-required="true" name="username" id="username" class="form-control valid" placeholder="Your username" required>
-                  <span class="input-group-addon" id="basic-addon2">@svf-services.com</span>
+                  <input type="email" class="form-control" name="inputEmail" id="inputEmail" aria-required="true" aria-invalid="true" required>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  </span>                  
                 </div>
-              </div>
+              </div>                 
             </div>
             <div class="form-group">
               <div class="col-md-12">
-                <label for="password">Password:</label>
+                <label for="password">Password</label>
               </div>
               <div class="col-lg-12">
                 <div class="input-group">                     
-                  <input aria-invalid="false" aria-required="true" name="password" id="password" class="form-control valid" placeholder="Your password" type="password" required>
+                  <input aria-invalid="false" aria-required="true" name="password" id="password" class="form-control valid" type="password" required>
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                   </span>  
@@ -106,14 +108,16 @@ if(isset($_POST['btn-login'])){
           <span class="help-block text-center"><a data-toggle="collapse" data-target="#panel-footer-01" style="text-decoration: none;cursor: pointer">Forgot your password?</a></span>          
         </div>
         <div class="panel-footer gray-lighter-bg collapse" id="panel-footer-01">
-          <p class="text-center" style="padding-top: 15px">Enter your username to retrive your password.</p>
-          <form novalidate="novalidate" class="form-horizontal mt0" action="index.html" id="login-form" role="form">
+          <p class="text-center" style="padding-top: 15px">Enter your email to retrive your password.</p>
+          <form role="form" class="form-horizontal mt0" action="index.html" id="login-form" >
             <div class="form-group">
               <div class="col-lg-12">
                 <div class="input-group">
-                  <input aria-invalid="false" aria-required="true" name="username" id="username" class="form-control valid" placeholder="Your username">
-                  <span class="input-group-addon" id="basic-addon2">@svf-services.com</span>                  
-                </div>                
+                  <input type="email" aria-invalid="false" aria-required="true" name="email-retrive" id="email-retrive" class="form-control valid" required>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  </span>
+                </div>
               </div>
             </div>
             <div class="form-group" style="margin-bottom: 0px;padding-bottom:15px">
