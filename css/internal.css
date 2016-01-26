@@ -1,97 +1,117 @@
 body {
-    line-height: 1.42857;
-    color: #333;
-    font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 13px;
-    background: transparent url("../img/patterns/01.png") repeat scroll 0% 0%;
+  line-height: 1.42857;
+  color: #333;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  background: transparent url("../img/patterns/01.png") repeat scroll 0% 0%;
 }
 
 body.login-page > .login-container {
-    width: 360px;
+  width: 360px;
 }
-body.login-page .login-panel{
-    margin-top: 80px;
-    margin-bottom: 15px;
+
+body.login-page .login-panel {
+  margin-top: 60px;
+  margin-bottom: 15px;
 }
-body.login-page .login-panel:after,body.login-page .login-panel:before{
-    background-image:linear-gradient(to bottom,#f8f8f8 0,#f9f9f9 100%);
-    background-repeat:repeat-x;
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#fff9f9f9', GradientType=0);
-    border:1px solid #c4c6ca;
-    content:"";
-    display:block;
-    height:100%;
-    left:-1px;
-    position:absolute;
-    width:100%
+
+body.login-page .login-panel:after,
+body.login-page .login-panel:before {
+  background-image: linear-gradient(to bottom, #f8f8f8 0, #f9f9f9 100%);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#fff9f9f9', GradientType=0);
+  border: 1px solid #c4c6ca;
+  content: "";
+  display: block;
+  height: 100%;
+  left: -1px;
+  position: absolute;
+  width: 100%
 }
-body.login-page .login-panel:after{
-    -webkit-transform:rotate(2deg);
-    -ms-transform:rotate(2deg);
-    transform:rotate(2deg);
-    top:0;
-    z-index:-1
+
+body.login-page .login-panel:after {
+  -webkit-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+  top: 0;
+  z-index: -1
 }
-body.login-page .login-panel:before{
-    -webkit-transform:rotate(-3deg);
-    -ms-transform:rotate(-3deg);
-    transform:rotate(-3deg);
-    top:0;
-    z-index:-2
+
+body.login-page .login-panel:before {
+  -webkit-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  top: 0;
+  z-index: -2
 }
-.navbar{
+
+.navbar {
   border-radius: 0px;
 }
+
 .navbar-default .navbar-brand {
-    color: #337AB7;
+  color: #337AB7;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #23527c;
 }
-.navbar-brand-custom{
+
+.navbar-brand-custom {
   font-size: 30px;
   font-weight: 700;
+  color: #337AB7;
 }
+
 .navbar-link {
   float: left;
 }
+
 .navbar-link:hover {
   text-decoration: none;
 }
+
 .navbar-link > p > img {
   margin-right: 5px;
 }
+
 .navbar-text {
   margin-left: 5px;
   margin-top: 20px;
   margin-bottom: 11px;
 }
-.slogan-custom{
+
+.slogan-custom {
   font-size: 16px;
   color: #6B6B6B;
+  font-weight: 700;
 }
+
 .footer {
-    padding-top: 25px;
+  padding-top: 25px;
 }
+
 .panel {
-    position: relative;
-    border-radius: 0;
+  position: relative;
+  border-radius: 0;
 }
+
 .panel-footer {
-    background-color: #E8E8E8;
-    border-top: 1px solid #E5E5E5;
-    border-bottom-right-radius: 1px;
-    border-bottom-left-radius: 1px;
-    padding-bottom: 0px;
-    padding-top: 0px;
+  background-color: #E8E8E8;
+  border-top: 1px solid #E5E5E5;
+  border-bottom-right-radius: 1px;
+  border-bottom-left-radius: 1px;
+  padding-bottom: 0px;
+  padding-top: 0px;
 }
+
 .panel .panel-footer {
-    -moz-border-top-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    border-image: none;
-    background-image: linear-gradient(to bottom, #FFF 0px, #F3F3F3 100%);
-    background-repeat: repeat-x;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  background-image: linear-gradient(to bottom, #FFF 0px, #F3F3F3 100%);
+  background-repeat: repeat-x;
 }

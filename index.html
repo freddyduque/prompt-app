@@ -63,14 +63,15 @@ if(isset($_POST['btn-login'])){
       <div class="login-panel panel panel-default plain">
         <div class="panel-body">
           <?php if(isset($msg))echo $msg;?>
+            <p class="text-center"><span class="navbar-brand-custom">SVF</span><span class="slogan slogan-custom">.prompt</span></p>
             <form method="POST" action="index.html" class="form-horizontal mt0" id="login-form" role="form">
               <div class="form-group">
                 <div class="col-md-12">
-                  <label for="inputEmail">Username or email address</label>
+                  <label for="inputEmail">Username</label>
                 </div>
                 <div class="col-lg-12">
                   <div class="input-group">
-                    <input type="email" class="form-control" name="inputEmail" id="inputEmail" aria-required="true" aria-invalid="true" required>
+                    <input type="email" class="form-control" name="inputEmail" id="inputEmail" aria-required="true" aria-invalid="true" placeholder="Your username" required>
                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-envelope"></span>
                     </span>
@@ -83,7 +84,7 @@ if(isset($_POST['btn-login'])){
                 </div>
                 <div class="col-lg-12">
                   <div class="input-group">
-                    <input aria-invalid="false" aria-required="true" name="password" id="password" class="form-control valid" type="password" required>
+                    <input aria-invalid="false" aria-required="true" name="password" id="password" class="form-control valid" type="password" placeholder="Your password" required>
                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-lock"></span>
                     </span>
@@ -104,6 +105,7 @@ if(isset($_POST['btn-login'])){
                 </div>
               </div>
             </form>
+            <div class="col-xs-12"></div>
             <span class="help-block text-center"><a data-toggle="collapse" data-target="#panel-footer-01" style="text-decoration: none;cursor: pointer">Forgot your password?</a></span>
         </div>
         <div class="panel-footer gray-lighter-bg collapse" id="panel-footer-01">

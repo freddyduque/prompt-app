@@ -1,5 +1,9 @@
 <?php
+include_once '../../../../includes/logout.php';
 session_start();
+
+if(isset($_GET["lgout"]))
+  logout();
 
 if(!isset($_SESSION['UserSession']))
   header("Location: ../../index.html");
@@ -23,7 +27,9 @@ if(!isset($_SESSION['UserSession']))
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/internal-main.css">
     <link rel="stylesheet" href="../../css/awesome-bootstrap-checkbox.css">
-
+    <link rel="stylesheet" href="../../css/form-layout.css">
+    <!--<link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css"> -->
+    <link rel="stylesheet" href="../../css/bootstrap-datepicker3.min.css">
   </head>
 
   <body>
@@ -54,7 +60,7 @@ if(!isset($_SESSION['UserSession']))
               <li role="separator" class="divider"></li>
               <li><a href="#"><span class="glyphicon glyphicon-custom glyphicon-user"></span>My Account</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-out glyphicon-custom"></span>Sign out</a></li>
+              <li><a href="?lgout=true"><span class="glyphicon glyphicon-log-out glyphicon-custom"></span>Sign out</a></li>
             </ul>
           </li>
         </ul>
