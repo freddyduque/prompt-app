@@ -1,3 +1,9 @@
+@media (min-width: 768px) {
+  .text-right-sm {
+    text-align: right;
+  }
+}
+
 body {
   line-height: 1.42857;
   color: #333;
@@ -86,4 +92,8 @@ div > a .glyphicon {
 
 .panel-title > span {
   padding-right: 10px;
+}
+
+.breadcrumb {
+  margin-bottom: 0px;
 }
