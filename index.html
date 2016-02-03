@@ -11,13 +11,13 @@ if(isset($_POST['btn-login'])){
   $email = $mysqli->real_escape_string(trim($_POST['inputEmail']));
   $upass = $mysqli->real_escape_string(trim($_POST['password']));
   
-  $query = $mysqli->query("SELECT * FROM user WHERE email='".$email."';");
+  $query = $mysqli->query("SELECT * FROM SVF_USER WHERE EMAIL='".$email."' OR USERNAME='".$email."';");
   $row = $query->fetch_array();
   
   if(strcmp( $upass, $row['PASSWORD']) == 0  ){          //if(password_verify($upass, $row['password'])){
-    $_SESSION['UserSession'] = $row['iduser'];
-    $_SESSION['UserName'] = $row['NAME'];
-    $_SESSION['UserLastName'] = $row['LASTNAME'];
+    $_SESSION['UserSession'] = $row['IDUSER'];
+    $_SESSION['UserName'] = $row['FIRST_NAME'];
+    $_SESSION['UserLastName'] = $row['LAST_NAME'];
     $_SESSION['UserEmail'] = $row['EMAIL'];
     header("Location: prompt-main/index.html");
   }else
