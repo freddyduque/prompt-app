@@ -53,8 +53,8 @@ if(!isset($_SESSION['UM01.CR01']))
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <?php echo $_SESSION[UserName]." ".$_SESSION[UserLastName];?><span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle custom-navbar-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <?php echo $_SESSION[UserName]." ".$_SESSION[UserLastName];?><span class="caret custom-caret"></span></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">
                 <?php echo $_SESSION[UserEmail];?>
@@ -116,10 +116,10 @@ if(!isset($_SESSION['UM01.CR01']))
             </div>
           </div>
           <div class="form-group form-group-sm col-sm-6 clear-margin">
-            <label for="inputPassword3" class="col-sm-4 control-label">Date of Birth</label>
+            <label for="inputDateSelector" class="col-sm-4 control-label">Date of Birth</label>
             <div class="col-sm-8">
               <div class="input-group date" data-provide="datepicker" data-date-format="dd-mm-yyyy">
-                <input type="text" class="form-control" size="16" readonly>
+                <input id="inputDateSelector" type="text" class="form-control" size="16" readonly>
                 <div class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </div>
@@ -127,14 +127,20 @@ if(!isset($_SESSION['UM01.CR01']))
             </div>
           </div>
           <div class="form-group form-group-sm col-sm-6 clear-margin">
-            <label for="roleSelector" class="col-sm-4 control-label">Role</label>
+            <label class="col-sm-4 control-label">Role</label>
             <div class="col-sm-8">
-              <select class="form-control" id="roleSelector">
-                <option selected="0">Please select</option>
-                <option>Administrator</option>
-                <option>Operator</option>
-                <option>Technician</option>
-              </select>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-default dropdown-toggle form-control custom-dropdown-btn" id="dropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Please select
+                  <span class="caret custom-caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenu1">
+                  <li><a href="#" data-value="action">Action</a></li>
+                  <li><a href="#" data-value="another action">Another action</a></li>
+                  <li><a href="#" data-value="something else here">Something else here</a></li>
+                  <li><a href="#" data-value="separated link">Separated link</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </form>
@@ -154,6 +160,11 @@ if(!isset($_SESSION['UM01.CR01']))
       $('.datepicker').datepicker({
         startView: 2
       })
+
+      $(".dropdown-menu li a").click(function () {
+        $(this).parents("div.dropdown").children("button:first").html($(this).text() + ' <span class="caret custom-caret"></span>');
+        $(this).parents("div.dropdown").children("button:first").val($(this).data('value'));
+      });
     </script>
   </body>
 

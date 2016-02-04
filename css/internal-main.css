@@ -116,3 +116,25 @@ div > a .glyphicon {
   background-color: #e5e5e5;
   margin-bottom: 15px;
 }
+
+div.dropdown > .dropdown-menu.custom-dropdown {
+  width: 100%;
+}
+
+div.dropdown > .dropdown-menu.custom-dropdown > li > a {
+  font-size: 12px;
+}
+
+span.caret.custom-caret {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+}
+
+ul.navbar-right > li > a.custom-navbar-right {
+  padding-right: 30px;
+}
+
+div.dropdown > button.custom-dropdown-btn {
+  text-align: left;
+}
