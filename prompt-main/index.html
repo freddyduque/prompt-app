@@ -3,18 +3,16 @@ include_once '../../../includes/db_connect.php';
 include_once '../../../includes/logout.php';
 include_once '../../../includes/access_rules.php';
 include_once '../../../includes/test_session_values.php';    //Remove to stop displaying the $_SESSION values
-
 session_start();
 
 if(isset($_GET["lgout"]))
   logout();
-
 if(!isset($_SESSION['UserSession']))
   header("Location: ../index.html");
 
 get_privileges($mysqli);
+print_session_val();                                         //Remove to stop displaying the $_SESSION values
 
-print_session_val();
 ?>
   <!DOCTYPE html>
   <html>
@@ -56,8 +54,8 @@ print_session_val();
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <?php echo $_SESSION[UserName]." ".$_SESSION[UserLastName];?><span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle custom-navbar-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <?php echo $_SESSION[UserName]." ".$_SESSION[UserLastName];?><span class="caret custom-caret"></span></a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">
                 <?php echo $_SESSION[UserEmail];?>

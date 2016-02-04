@@ -123,6 +123,7 @@ div.dropdown > .dropdown-menu.custom-dropdown {
 
 div.dropdown > .dropdown-menu.custom-dropdown > li > a {
   font-size: 12px;
+  cursor: pointer;
 }
 
 span.caret.custom-caret {

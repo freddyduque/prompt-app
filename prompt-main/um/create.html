@@ -1,5 +1,7 @@
 <?php
 include_once '../../../../includes/logout.php';
+include_once '../../../../includes/dropdown_gntor.php';
+include_once '../../../../includes/db_connect.php';
 session_start();
 
 if(isset($_GET["lgout"]))
@@ -8,7 +10,6 @@ if(!isset($_SESSION['UserSession']))
   header("Location: ../../index.html");
 if(!isset($_SESSION['UM01.CR01']))
   header("Location: ../index.html");
-
 ?>
   <!DOCTYPE html>
   <html>
@@ -110,9 +111,15 @@ if(!isset($_SESSION['UM01.CR01']))
             </div>
           </div>
           <div class="form-group form-group-sm col-sm-6 clear-margin">
-            <label for="inputEmail3" class="col-sm-4 control-label">Last Name</label>
+            <label for="inputMiddleName" class="col-sm-4 control-label">Middle Name</label>
             <div class="col-sm-8">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Last Name">
+              <input aria-invalid="false" aria-required="false" class="form-control" id="inputMiddleName" placeholder="Middle Name">
+            </div>
+          </div>
+          <div class="form-group form-group-sm col-sm-6 clear-margin">
+            <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
+            <div class="col-sm-8">
+              <input aria-invalid="false" aria-required="true" class="form-control" id="inputLastName" placeholder="Last Name">
             </div>
           </div>
           <div class="form-group form-group-sm col-sm-6 clear-margin">
@@ -127,18 +134,34 @@ if(!isset($_SESSION['UM01.CR01']))
             </div>
           </div>
           <div class="form-group form-group-sm col-sm-6 clear-margin">
+            <label for="inputPhone" class="col-sm-4 control-label">Phone Number</label>
+            <div class="col-sm-8">
+              <input aria-invalid="false" aria-required="true" class="form-control" id="inputPhone" placeholder="Last Name">
+            </div>
+          </div>
+          <div class="form-group form-group-sm col-sm-6 clear-margin">
+            <label for="inputPhone2" class="col-sm-4 control-label">Phone Number</label>
+            <div class="col-sm-8">
+              <input aria-invalid="false" aria-required="false" class="form-control" id="inputPhone2" placeholder="Middle Name">
+            </div>
+          </div>
+          <div class="form-group form-group-sm col-sm-6 clear-margin">
             <label class="col-sm-4 control-label">Role</label>
             <div class="col-sm-8">
               <div class="dropdown">
-                <button class="btn btn-sm btn-default dropdown-toggle form-control custom-dropdown-btn" id="dropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Please select
+                <button class="btn btn-sm btn-default dropdown-toggle form-control custom-dropdown-btn" id="dropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value="0">Please select
                   <span class="caret custom-caret"></span>
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenu1">
-                  <li><a href="#" data-value="action">Action</a></li>
-                  <li><a href="#" data-value="another action">Another action</a></li>
-                  <li><a href="#" data-value="something else here">Something else here</a></li>
-                  <li><a href="#" data-value="separated link">Separated link</a></li>
+                  <li><a data-value="0">Please select</a></li>
+                  <li role="separator" class="divider" style="margin:2px 0;"></li>
+                  <?php
+                    $dropdown_array=get_dropdown_val($mysqli,'SVF_ROLE');
+                    while($row = $dropdown_array->fetch_array()){
+                      echo "<li><a data-value='".$row['IDROLE']."'>".$row['ROLE']."</a></li>";
+                    }
+                  ?>
                 </ul>
               </div>
             </div>
