@@ -77,13 +77,13 @@ print_session_val();                                         //Remove to stop di
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 <?php if(!isset($_SESSION['OM01']))echo 'hidden';?>">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 <?php if(!isset($_SESSION['OM01']))echo 'prmasap';?>">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>Order Management</h3>
               </div>
               <div class="panel-body">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['OM01.CR01']))echo 'hidden';?>">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['OM01.CR01']))echo 'prmasap';?>">
                   <div class='thumbnail'>
                     <a href='om/create.html' class='thumbnail'>
                       <span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
@@ -93,7 +93,7 @@ print_session_val();                                         //Remove to stop di
                     </a>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['OM01.SR01']))echo 'hidden';?>">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['OM01.SR01']))echo 'prmasap';?>">
                   <div class="thumbnail">
                     <a href="om/search.html" class="thumbnail">
                       <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -106,13 +106,13 @@ print_session_val();                                         //Remove to stop di
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 <?php if(!isset($_SESSION['AD01']))echo 'hidden';?>">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 <?php if(!isset($_SESSION['AD01']))echo 'prmasap';?>">
             <div class="panel panel-success">
               <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Administration</h3>
               </div>
               <div class="panel-body">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['AD01.RP01']))echo 'hidden';?>">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['AD01.RP01']))echo 'prmasap';?>">
                   <div class="thumbnail">
                     <a href="report/generate.html" class="thumbnail">
                       <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
@@ -122,7 +122,7 @@ print_session_val();                                         //Remove to stop di
                     </a>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['AD01.BU01']))echo 'hidden';?>">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['AD01.BU01']))echo 'prmasap';?>">
                   <div class="thumbnail">
                     <a href="backup/io.html" class="thumbnail">
                       <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
@@ -135,13 +135,13 @@ print_session_val();                                         //Remove to stop di
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 <?php if(!isset($_SESSION['UM01']))echo 'hidden';?>">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 <?php if(!isset($_SESSION['UM01']))echo 'prmasap';?>">
             <div class="panel panel-warning">
               <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User Management</h3>
               </div>
               <div class="panel-body">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['UM01.CR01']))echo 'hidden';?>">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['UM01.CR01']))echo 'prmasap';?>">
                   <div class="thumbnail">
                     <a href="um/create.html" class="thumbnail">
                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -151,7 +151,7 @@ print_session_val();                                         //Remove to stop di
                     </a>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['UM01.SR01']))echo 'hidden';?>">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 <?php if(!isset($_SESSION['UM01.SR01']))echo 'prmasap';?>">
                   <div class="thumbnail">
                     <a href="um/search.html" class="thumbnail">
                       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -174,6 +174,11 @@ print_session_val();                                         //Remove to stop di
     </div>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".prmasap").remove();
+      });
+    </script>
   </body>
 
   </html>
