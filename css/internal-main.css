@@ -12,6 +12,10 @@ body {
   background: transparent url("../img/patterns/01.png") repeat scroll 0% 0%;
 }
 
+a[disabled] {
+  pointer-events: none;
+}
+
 h3 {
   margin-top: 0px;
   margin-bottom: 20px;
@@ -88,7 +92,7 @@ h1 {
   margin-bottom: 11px;
 }
 
-div > a .glyphicon {
+div.thumbnail > a .glyphicon {
   padding-top: 10px;
   font-size: 40px;
 }
@@ -97,8 +101,12 @@ div > a .glyphicon {
   padding-right: 10px;
 }
 
+a.panel-title {
+  font-size: 14px;
+}
+
 .panel-title > span {
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 .breadcrumb {
@@ -138,4 +146,20 @@ ul.navbar-right > li > a.custom-navbar-right {
 
 div.dropdown > button.custom-dropdown-btn {
   text-align: left;
+}
+
+.list-group > a.list-group-item:after {
+  font-family: 'Glyphicons Halflings';
+  content: "\e114";
+  float: right;
+  color: inherit;
+}
+
+.list-group > a.list-group-item.collapsed:after {
+  content: "\e080";
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
 }
