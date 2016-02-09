@@ -1,6 +1,20 @@
-@media (min-width: 768px) {
-  .text-right-sm {
-    text-align: right;
+@media (min-width: 768px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .affix.tobe-affixed {
+    width: 157.5px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1999px) {
+  .affix.tobe-affixed {
+    width: 212.5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .affix.tobe-affixed {
+    width: 262.5px;
   }
 }
 
@@ -12,10 +26,6 @@ body {
   background: transparent url("../img/patterns/01.png") repeat scroll 0% 0%;
 }
 
-a[disabled] {
-  pointer-events: none;
-}
-
 h3 {
   margin-top: 0px;
   margin-bottom: 20px;
@@ -23,7 +33,7 @@ h3 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
   color: #337AB7;
   margin-top: 10px;
@@ -148,6 +158,11 @@ div.dropdown > button.custom-dropdown-btn {
   text-align: left;
 }
 
+.list-group > a.list-group-item {
+  border-right: 0px none;
+  border-left: 0px none;
+}
+
 .list-group > a.list-group-item:after {
   font-family: 'Glyphicons Halflings';
   content: "\e114";
@@ -162,4 +177,8 @@ div.dropdown > button.custom-dropdown-btn {
 a.disabled {
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.affix {
+  top: 0;
 }
