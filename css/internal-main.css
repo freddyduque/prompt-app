@@ -111,6 +111,10 @@ div.thumbnail > a .glyphicon {
   padding-right: 10px;
 }
 
+div > .panel-title {
+  font-size: 14px;
+}
+
 a.panel-title {
   font-size: 14px;
 }
@@ -126,6 +130,14 @@ a.panel-title {
 .form-horizontal .clear-margin {
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.form-horizontal .radio-inline {
+  padding-top: 5px;
+}
+
+.radio-inline input[type="radio"] {
+  margin-top: 2px;
 }
 
 .line-separator {
@@ -161,6 +173,7 @@ div.dropdown > button.custom-dropdown-btn {
 .list-group > a.list-group-item {
   border-right: 0px none;
   border-left: 0px none;
+  cursor: pointer;
 }
 
 .list-group > a.list-group-item:after {
