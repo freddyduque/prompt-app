@@ -29,10 +29,9 @@ if(!isset($_SESSION['UM01.CR01']))
     <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/internal-main.css">
-    <link rel="stylesheet" href="../../css/awesome-bootstrap-checkbox.css">
     <link rel="stylesheet" href="../../css/form-layout.css">
-    <!--<link rel="stylesheet" href="../../css/bootstrap-datepicker.min.css"> -->
-    <link rel="stylesheet" href="../../css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.css">
+
   </head>
 
   <body>
@@ -123,11 +122,11 @@ if(!isset($_SESSION['UM01.CR01']))
           <div class="form-group form-group-sm col-sm-6 clear-margin">
             <label for="inputDateSelector" class="col-sm-4 control-label">Date of Birth</label>
             <div class="col-sm-8">
-              <div class="input-group date" data-provide="datepicker" data-date-format="dd-mm-yyyy">
-                <input id="inputDateSelector" type="text" class="form-control" size="16" readonly>
-                <div class="input-group-addon">
+              <div class='input-group date' id='birthDate'>
+                <input type='text' class="form-control" readonly/>
+                <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
-                </div>
+                </span>
               </div>
             </div>
           </div>
@@ -174,13 +173,17 @@ if(!isset($_SESSION['UM01.CR01']))
     </div>
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/bootstrap-datepicker.min.js"></script>
-    <script src="../../js/moment.js"></script>
+    <script src="../../js/moment-with-locales.js"></script>
+    <script src="../../js/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript">
       // When the document is ready
-      $('.datepicker').datepicker({
-        startView: 2;
-      })
+      $(function () {
+        $('#birthDate').datetimepicker({
+          viewMode: 'years',
+          ignoreReadonly: true,
+          format: 'DD/MM/YYYY'
+        });
+      });
 
       $(".dropdown-menu li a").click(function () {
         $(this).parents("div.dropdown").children("button:first").html($(this).text() + ' <span class="caret custom-caret"></span>');
