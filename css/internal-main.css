@@ -195,3 +195,12 @@ a.disabled {
 .affix {
   top: 0;
 }
+
+.time-elapsed {
+  font-size: 17px;
+}
+
+.custom-label {
+  margin-top: 2px;
+  font-weight: unset;
+}

@@ -10,6 +10,27 @@ if(!isset($_SESSION['UserSession']))
   header("Location: ../../index.html");
 if(!isset($_SESSION['OM01.CR01']))
   header("Location: ../index.html");
+if(isset($_POST['btn-login'])){
+/*
+  $email = $mysqli->real_escape_string(trim($_POST['inputEmail']));
+  $upass = $mysqli->real_escape_string(trim($_POST['password']));
+
+  $query = $mysqli->query("SELECT * FROM SVF_USER WHERE EMAIL='".$email."' OR USERNAME='".$email."';");
+  $row = $query->fetch_array();
+
+  if(strcmp( $upass, $row['PASSWORD']) == 0  ){          //if(password_verify($upass, $row['password'])){
+    $_SESSION['UserSession'] = $row['IDUSER'];
+    $_SESSION['UserName'] = $row['FIRST_NAME'];
+    $_SESSION['UserLastName'] = $row['LAST_NAME'];
+    $_SESSION['UserEmail'] = $row['EMAIL'];
+    header("Location: prompt-main/index.html");
+  }else
+    $msg = "<div class='alert alert-danger alert-dismissible' role='alert'>
+      <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+      <strong>Email</strong> or <strong>Password</strong> doesn't exists!
+    </div>";
+  $mysqli->close();*/
+}
 ?>
   <!DOCTYPE html>
   <html>
@@ -81,64 +102,13 @@ if(!isset($_SESSION['OM01.CR01']))
           <div class="form-group form-group-sm">
             <h1 class="text-center"><span >Create Work Order</span></h1>
           </div>
-          <div class="hidden-xs panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Work Order Process Flow</h3>
-            </div>
-            <div class="panel-body">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">0%
-                </div>
-              </div>
-              <div class="row" id="process-diagram">
-                <div class="container-fluid">
-                  <div class="col-sm-1 clear-margin">
-                    <a class="btn btn-default btn-lg btn-block" role="button">01</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">02</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">03</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">04</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">05</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">06</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">07</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">08</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">09</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">10</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">11</a>
-                  </div>
-                  <div class="col-sm-1">
-                    <a class="btn btn-default btn-lg btn-block" role="button">12</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="panel-group list-group" style="background-color: white">
             <a class="panel-title list-group-item collapsed active" style="border:0px none" data-target="#collapseOne" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
               <span class="badge" style="float: left">01</span>Work Order Creation
             </a>
             <div id="collapseOne" class="panel-collapse collapse" aria-labelledby="collapseOne">
               <div class="panel-body" style="padding-left:0px;padding-right:0px;">
-                <form class="form-horizontal clear-margin" role="form">
+                <form class="form-horizontal clear-margin" role="form" id="form_WOC01">
                   <div class="form-group form-group-sm col-lg-12 clear-margin">
                     <label class="col-sm-4 col-md-5 control-label">Type of Service</label>
                     <div class="col-sm-7 radio-btn-group">
@@ -150,10 +120,12 @@ if(!isset($_SESSION['OM01.CR01']))
                       </label>
                     </div>
                   </div>
-                  <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
-                    <label for="orderNum" class="col-sm-4 col-md-5 col-lg-4 control-label">Order Number</label>
-                    <div class="col-sm-7 col-lg-8">
-                      <input aria-invalid="false" aria-required="true" class="form-control" id="orderNum" placeholder="Work Order Number" disabled title="This number is generated by the system once the order is created">
+                  <div class="row clear-margin">
+                    <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
+                      <label for="orderNum" class="col-sm-4 col-md-5 col-lg-4 control-label">Order Number</label>
+                      <div class="col-sm-7 col-lg-8">
+                        <input aria-invalid="false" aria-required="true" class="form-control" id="orderNum" placeholder="Work Order Number" disabled title="This number is generated by the system once the order is created">
+                      </div>
                     </div>
                   </div>
                   <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
@@ -218,6 +190,9 @@ if(!isset($_SESSION['OM01.CR01']))
                       </div>
                     </div>
                   </div>
+                  <div class="form-group-sm col-xs-12 col-sm-offset-4 col-sm-4">
+                    <button onclick="create_order(this)" type="submit" class="btn btn-primary btn-block" name="btn-create01" id="btn-create01">Create <span class="glyphicon glyphicon-paste"></span></button>
+                  </div>
                 </form>
               </div>
             </div>
@@ -255,8 +230,15 @@ if(!isset($_SESSION['OM01.CR01']))
                 <h3 class="panel-title">Preview</h3>
               </div>
               <div class="panel-body">
-                <div class="progress">
+                <div class="progress" style="margin-bottom: 10px;">
                   <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">0%
+                  </div>
+                </div>
+                <div class="text-center">
+                  <label class="control-label">Elapsed Time</label>
+                  <div id="clock">
+                    <span class="glyphicon glyphicon-time"></span>
+                    <label class="time-elapsed">00:00:00</label>
                   </div>
                 </div>
               </div>
@@ -275,21 +257,26 @@ if(!isset($_SESSION['OM01.CR01']))
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/moment-with-locales.js"></script>
     <script src="../../js/bootstrap-datetimepicker.js"></script>
+    <script src="../../js/jquery.countdown.min.js"></script>
 
     <script type="text/javascript">
-      // When the document is ready
+      var current_time = new Date($.now());
       $(function () {
-
         $('#firstContactDate').datetimepicker({
+          defaultDate: current_time,
+          minDate: current_time,
           showTodayButton: true,
           showClose: true,
-          ignoreReadonly: true
+          ignoreReadonly: true,
+          sideBySide: true,
         });
         $('#jobExecutionDate').datetimepicker({
-          useCurrent: false,
+          defaultDate: current_time,
+          minDate: current_time,
           showTodayButton: true,
           ignoreReadonly: true,
           showClose: true,
+          sideBySide: true,
         });
         $("#firstContactDate").on("dp.change", function (e) {
           $('#jobExecutionDate').data("DateTimePicker").minDate(e.date);
@@ -305,9 +292,27 @@ if(!isset($_SESSION['OM01.CR01']))
       });
       $(document).ready(function () {
         $('.radio-btn-group label input').on('change', function () {
-          //alert($('input[name=inlineRadioOptions]:checked').val());
+          alert($('input[name=inlineRadioOptions]:checked').val());
         });
       });
+
+      function update_timer(ele) {
+        var use_this_time = new Date(ele.data("DateTimePicker").date());
+        $('div#clock').countdown(use_this_time, {
+          elapse: true
+        }).on('update.countdown', function (event) {
+          if (event.elapsed) {
+            $(this).children("label").text(event.strftime('%H:%M:%S'));
+            //$(this).text(event.strftime('%D days %H:%M:%S'));
+          } else {
+            //$(this).text(event.strftime('%D days %H:%M:%S'));
+          }
+        });
+      }
+
+      function create_order(ele) {
+        alert(ele.parent().text());
+      }
     </script>
   </body>
 
