@@ -133,13 +133,15 @@ if(!isset($_SESSION['OM01.CR01']))
             </div>
           </div>
           <div class="panel-group list-group" style="background-color: white">
-            <a class="panel-title list-group-item collapsed active" style="border:0px none" data-target="#collapseOne" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne"><span class="badge" style="float: left">01</span>Work Order Creation</a>
+            <a class="panel-title list-group-item collapsed active" style="border:0px none" data-target="#collapseOne" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+              <span class="badge" style="float: left">01</span>Work Order Creation
+            </a>
             <div id="collapseOne" class="panel-collapse collapse" aria-labelledby="collapseOne">
               <div class="panel-body" style="padding-left:0px;padding-right:0px;">
                 <form class="form-horizontal clear-margin" role="form">
-                  <div class="form-group form-group-sm col-sm-12 clear-margin">
-                    <label class="col-sm-4 col-md-2 control-label">Type of Service</label>
-                    <div class="col-sm-8 radio-btn-group">
+                  <div class="form-group form-group-sm col-lg-12 clear-margin">
+                    <label class="col-sm-4 col-md-5 control-label">Type of Service</label>
+                    <div class="col-sm-7 radio-btn-group">
                       <label class="radio-inline">
                         <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>In Shop
                       </label>
@@ -155,14 +157,36 @@ if(!isset($_SESSION['OM01.CR01']))
                     </div>
                   </div>
                   <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
+                    <label for="firstContactDate" class="col-sm-4 col-md-5 col-lg-4 control-label">First Contact Date</label>
+                    <div class="col-sm-7 col-lg-8">
+                      <div class='input-group date' id='firstContactDate'>
+                        <input type='text' class="form-control" readonly/>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
+                    <label for="jobExecutionDate" class="col-sm-4 col-md-5 col-lg-4 control-label">Job Execution Date</label>
+                    <div class="col-sm-7 col-lg-8">
+                      <div class='input-group date' id='jobExecutionDate'>
+                        <input type='text' class="form-control" readonly/>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
                     <label class="col-sm-4 col-md-5 col-lg-4 control-label">Job Type</label>
                     <div class="col-sm-7 col-lg-8">
                       <div class="dropdown">
-                        <button class="btn btn-sm btn-default dropdown-toggle form-control custom-dropdown-btn" id="dropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value="0">Please select
+                        <button class="btn btn-sm btn-default dropdown-toggle form-control custom-dropdown-btn" id="jobTypeDropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value="0">Please select
                           <span class="caret custom-caret"></span>
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <ul class="dropdown-menu custom-dropdown" aria-labelledby="dropdownMenu1">
+                        <ul class="dropdown-menu custom-dropdown" aria-labelledby="jobTypeDropdownMenu1">
                           <li><a data-value="0">Please select</a></li>
                           <li role="separator" class="divider" style="margin:2px 0;"></li>
                           <?php
@@ -175,33 +199,23 @@ if(!isset($_SESSION['OM01.CR01']))
                     </div>
                   </div>
                   <div class="form-group form-group-sm col-sm-12 col-md-6 clear-margin">
-                    <label for="firstContactDate" class="col-sm-4 col-md-5 col-lg-4 control-label">First Contact Date</label>
+                    <label class="col-sm-4 col-md-5 col-lg-4 control-label">Primary Job Subject</label>
                     <div class="col-sm-7 col-lg-8">
-                      <div class='input-group date' id='firstContactDate'>
-                        <input type='text' class="form-control" readonly/>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                      <div class="dropdown">
+                        <button class="btn btn-sm btn-default dropdown-toggle form-control custom-dropdown-btn" id="primaryJobDropdownMenu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value="0">Please select
+                          <span class="caret custom-caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu custom-dropdown" aria-labelledby="primaryJobDropdownMenu1">
+                          <li><a data-value="0">Please select</a></li>
+                          <li role="separator" class="divider" style="margin:2px 0;"></li>
+                          <?php
+                            $dropdown_array=get_dropdown_val($mysqli,'SVF_PRIMARY_JOB');
+                            while($row = $dropdown_array->fetch_array())
+                              echo "<li><a data-value='".$row['IDPRIMARY_JOB']."'>".$row['PRIMARY_JOB']."</a></li>";
+                          ?>
+                        </ul>
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group form-group-sm col-sm-12 clear-margin">
-                    <label class="col-sm-4 col-md-2 control-label">Job Execution</label>
-                    <div class="col-sm-8 radio-btn-group">
-                      <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>ASAP
-                      </label>
-                      <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <div class='input-group date' id='scheduledDate'>
-                          <input type='text' class="form-control" readonly/>
-                          <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                          </span>
-                        </div>
-                      </label>
-
                     </div>
                   </div>
                 </form>
@@ -265,20 +279,22 @@ if(!isset($_SESSION['OM01.CR01']))
     <script type="text/javascript">
       // When the document is ready
       $(function () {
+
         $('#firstContactDate').datetimepicker({
           showTodayButton: true,
           showClose: true,
           ignoreReadonly: true
         });
-        $('#scheduledDate').datetimepicker({
+        $('#jobExecutionDate').datetimepicker({
           useCurrent: false,
+          showTodayButton: true,
           ignoreReadonly: true,
           showClose: true,
         });
         $("#firstContactDate").on("dp.change", function (e) {
-          $('#scheduledDate').data("DateTimePicker").minDate(e.date);
+          $('#jobExecutionDate').data("DateTimePicker").minDate(e.date);
         });
-        $("#scheduledDate").on("dp.change", function (e) {
+        $("#jobExecutionDate").on("dp.change", function (e) {
           $('#firstContactDate').data("DateTimePicker").maxDate(e.date);
         });
       });
